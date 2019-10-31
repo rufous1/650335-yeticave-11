@@ -28,7 +28,7 @@
               <span class="lot__cost"><?= formatPrice($value['price']); ?></span>
             </div>
             <div class="lot__timer timer<?php if (lotTimeRemaining($value['date']) < '01 : 00'): ?> timer--finishing <?php endif; ?>">
-              <?= lotTimeRemaining($value['lotTaimer']); ?>
+              <?= lotTimeRemaining($value['date']); ?>
             </div>
           </div>
         </div>
