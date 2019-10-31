@@ -1,4 +1,8 @@
 <?php
+$is_auth = rand(0, 1);
+$user_name = 'Дмитрий';
+
+$categories = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
 $lots = [
   [
     'title' => '2014 Rossignol District Snowboard',
