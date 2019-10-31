@@ -9,7 +9,7 @@ $lots = [
     'category' => $categories[0],
     'price' => 10999,
     'image' => 'img/lot-1.jpg',
-    'lotTaimer' => '2019-11-04'
+    'date' => '2019-11-04'
   ],
   [
     'title' => 'DC Ply Mens 2016/2017 Snowboard',
