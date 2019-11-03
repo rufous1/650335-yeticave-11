@@ -7,15 +7,8 @@ function formatPrice(int $number): string {
   return $formatNumber . ' ₽';
 }
 
-// функция фильтрации от XSS
-function esc($string) {
-  $text = htmlspecialchars($string);
-
-  return $text;
-}
-
 // функция подсчета оставшегося времени
-function lotTimeRemaimimg(string $date) {
+function lotTimeRemaining(string $date) {
   date_default_timezone_set('Europe/Moscow');
   setlocale(LC_ALL, 'ru_RU');
 
@@ -24,11 +17,10 @@ function lotTimeRemaimimg(string $date) {
 
   $hours = str_pad(floor($secsToEnd / 3600), 2, '0', STR_PAD_LEFT);
   $minutes = str_pad(floor(($secsToEnd % 3600) / 60), 2, '0', STR_PAD_LEFT);
-  $timeCount = array(
+
+  return [
     'hours' => $hours,
     'minutes' => $minutes
-  );
-
-  return $timeCount;
+  ];
 }
 ?>
