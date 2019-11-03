@@ -9,14 +9,14 @@ $lots = [
     'category' => $categories[0],
     'price' => 10999,
     'image' => 'img/lot-1.jpg',
-    'date' => '2019-11-04'
+    'date' => '2019-11-06'
   ],
   [
     'title' => 'DC Ply Mens 2016/2017 Snowboard',
     'category' => $categories[0],
     'price' => 159999,
     'image' => 'img/lot-2.jpg',
-    'date' => '2019-11-02'
+    'date' => '2019-11-08'
   ],
   [
     'title' => 'Крепления Union Contact Pro 2015 года размер L/XL',
@@ -44,7 +44,7 @@ $lots = [
     'category' => $categories[5],
     'price' => 5400,
     'image' => 'img/lot-6.jpg',
-    'date' => '2019-11-01'
+    'date' => '2019-11-15'
   ]
 ];
 ?>
