@@ -28,7 +28,7 @@
               <span class="lot__cost"><?= formatPrice(htmlspecialchars($value['price'])); ?></span>
             </div>
             <div class="lot__timer timer<?php if (lotTimeRemaining($value['date'])['hours'] < 1) echo ' timer--finishing' ?>">
-              <?= implode(' : ', lotTimeRemaining(htmlspecialchars($value['date']))); ?>
+              <?= implode(' : ', lotTimeRemaining($value['date'])); ?>
             </div>
           </div>
         </div>
