@@ -41,7 +41,7 @@ CREATE TABLE bets (
   lot_id INT NOT NULL
 );
 
-CREATE INDEX user_id ON users(user_id);
-CREATE INDEX lot_id ON lots(lot_id);
+CREATE INDEX user_id ON users(id);
+CREATE INDEX lot_id ON lots(id);
 CREATE INDEX bet ON bets(bet);
 
