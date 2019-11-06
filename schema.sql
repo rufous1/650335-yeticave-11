@@ -41,7 +41,7 @@ CREATE TABLE bets (
 
 CREATE TABLE user_contacts (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  users_id INT,
+  users_id INT NOT NULL,
   city VARCHAR(32) NOT NULL,
   address VARCHAR(255) NOT NULL,
   phone TINYINT UNIQUE NOT NULL
@@ -49,7 +49,7 @@ CREATE TABLE user_contacts (
 
 CREATE TABLE lot_images (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  lots_id INT,
+  lots_id INT NOT NULL,
   image VARCHAR(255) NOT NULL,
 );
 
