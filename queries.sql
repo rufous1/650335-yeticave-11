@@ -119,7 +119,7 @@ FROM lots AS l
     ON l.id = li.id
   LEFT JOIN bets AS b
     ON l.id = b.lot_id
-WHERE l.date_end > NOW()
+WHERE l.date_add < NOW()
 ORDER BY l.date_add DESC;
 
 --показать лот по его id. Получите также название категории, к которой принадлежит лот
