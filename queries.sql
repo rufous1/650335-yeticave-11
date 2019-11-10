@@ -116,7 +116,7 @@ FROM lots AS l
   LEFT JOIN categories AS c
     ON l.category_id = c.id
   LEFT JOIN lot_images AS li
-    ON l.id = li.id
+    ON l.id = li.lot_id
   LEFT JOIN bets AS b
     ON l.id = b.lot_id
 WHERE l.date_add < NOW()
@@ -125,18 +125,21 @@ ORDER BY l.date_add DESC;
 --показать лот по его id. Получите также название категории, к которой принадлежит лот
 SELECT
   l.*,
-  c.title
+  c.title,
+  li.image
 FROM
   lots AS l,
-  categories AS c
+  categories AS c,
+  lot_images AS li
 WHERE l.id
-AND l.category_id = c.id;
+AND l.category_id = c.id
+AND l.id = li.lot_id;
 
 --обновить название лота по его идентификатору
 UPDATE lots
 SET
-  title = 'DC Ply Mens 2016/2017 Snowboard'
-WHERE = 2;
+  title = 'DC Ply Mens Snowboard'
+WHERE id = 2;
 
 --получить список ставок для лота по его идентификатору с сортировкой по дате
 SELECT * FROM bets
