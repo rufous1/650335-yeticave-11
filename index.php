@@ -11,11 +11,11 @@ if (!$link) {
 } else {
   // отправляет SQL-запрос для получения списка новых лотов
   $sql = <<<SQL
-  SELECT lots.title, first_price AS price, date_end, lot_images.image AS image, categories.title AS category FROM lots
-  LEFT JOIN categories ON lots.category_id = categories.id
-  LEFT JOIN lot_images ON lots.id = lot_images.lot_id
-  WHERE date_end > NOW()
-  ORDER BY lots.date_add DESC
+SELECT lots.title, first_price AS price, date_end, lot_images.image AS image, categories.title AS category FROM lots
+LEFT JOIN categories ON lots.category_id = categories.id
+LEFT JOIN lot_images ON lots.id = lot_images.lot_id
+WHERE date_end > NOW()
+ORDER BY lots.date_add DESC
 SQL;
   $result = mysqli_query($link, $sql);
 
