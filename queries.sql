@@ -36,7 +36,7 @@ VALUES (
 );
 
 INSERT INTO lots (
-  date_add, title, description, first_price, date_end, step, user_id, winner_id, category_id
+  date_add, title, description, starting_price, date_end, step, user_id, winner_id, category_id
 )
 VALUES (
   '2019-10-29 15:32', '2014 Rossignol District Snowboard', 'Сноуборд без трещин, расслоений, вздутий. Канты целы, без ржавчины. Имеются царапины на скользяке, небольшие сколы верхнего рисунка на носу.', '10999', '2019-11-23', '150', '1', NULL, '1'
@@ -108,9 +108,9 @@ SELECT * FROM categories;
 --получить самые новые, открытые лоты. Каждый лот должен включать название, стартовую цену, ссылку на изображение, текущую цену, название категории
 SELECT
   l.title,
-  l.first_price,
+  l.starting_price,
   li.image,
-  b.bet,
+  MAX(b.bet) AS current_price,
   c.title AS category
 FROM lots AS l
   LEFT JOIN categories AS c
@@ -120,6 +120,7 @@ FROM lots AS l
   LEFT JOIN bets AS b
     ON l.id = b.lot_id
 WHERE l.date_end > NOW()
+GROUP BY l.id, li.image
 ORDER BY l.date_add DESC;
 
 --показать лот по его id. Получите также название категории, к которой принадлежит лот
@@ -131,7 +132,7 @@ FROM
   lots AS l,
   categories AS c,
   lot_images AS li
-WHERE l.id
+WHERE l.id = 2
 AND l.category_id = c.id
 AND l.id = li.lot_id;
 
@@ -143,5 +144,5 @@ WHERE id = 2;
 
 --получить список ставок для лота по его идентификатору с сортировкой по дате
 SELECT * FROM bets
-WHERE bets.lot_id
+WHERE bets.lot_id = 1
 ORDER BY date_add;
