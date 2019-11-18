@@ -1,17 +1,15 @@
 <?php
+require_once('init.php');
 require_once('helpers.php');
 require_once('functions.php');
 require_once('data.php');
-
-$link = mysqli_connect('localhost', 'root', '', 'yeticave');
-mysqli_set_charset($link, 'utf8');
 
 if (!$link) {
   print('Ошибка: Невозможно подключиться к MySQL ' . mysqli_connect_error());
 } else {
   // отправляет SQL-запрос для получения списка новых лотов
   $sql = <<<SQL
-SELECT lots.title, first_price AS price, date_end, lot_images.image AS image, categories.title AS category FROM lots
+SELECT lots.id, lots.title, starting_price, date_end, lot_images.image AS image, categories.title AS category FROM lots
 LEFT JOIN categories ON lots.category_id = categories.id
 LEFT JOIN lot_images ON lots.id = lot_images.lot_id
 WHERE date_end > NOW()
